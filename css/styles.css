@@ -5,7 +5,7 @@ File Name: styles.css
 */
 
 /* CSS Reset */
-body, header, nav, main, footer, h1, div, img, ul {
+body, header, nav, main, footer, h1, div, img, ul, figure, figcaption {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -38,55 +38,49 @@ img {
 	display: block;
 }
 
+/* Style rule for box sizing applies to all elements */
+* {
+	box-sizing: border-box;
+}
+
 /*Style rules for mobile viewport */
 
  /* Style rule for header */
 header {
-	position: -webkit-sticky;
-	position: sticky;
 	top: 0;
 	background-color: #201e25;
-	height: 115px;
+	height: 95px;
 }
 
 header img {
 	margin: 0 auto;
+	max-width: 55%
 }
 
-/* Style rules for navigation area */
-nav {
-	padding: 1%;
-	margin-bottom: 1%
-}
-
-nav ul {
-	list-style-type: none;
-	text-align: center;
-}
-
-nav li {
-	font-size: 1.75em;
-	font-family: "Pridi", serif;
-	border-top: 1px solid #fff;
-}
-
-nav li:first-child {
-	border-top: none;
-}
-
-nav li a {
-	display: block;
+/* Style rules for hamburger menu */
+.mobile-nav a {
 	color: #fff;
-	padding: 0.5em 1em;
+	font-family: 'Pridi', serif;
+	text-align: center;
+	font-size: 2em;
 	text-decoration: none;
+	padding: 3%;
+	display: block;
 }
 
-/* Show mobile class, hide tablet-desktop class */
+.mobile-nav a.menu-icon {
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+/* Show mobile class, hide tablet-desktop class and menu-links id */
 .mobile {
 	display: block;
 }
 
-.tablet-desktop {
+.tablet-desktop, #menu-links {
 	display: none;
 }
 
@@ -96,6 +90,14 @@ main {
 	padding: 2%;
 	font-size: 1.25em;
 	font-family: "Roboto", sans-serif;
+}
+
+p.big {
+	line-height: 1.8;
+}
+
+h1.center, h3, h4 {
+	text-align: center;
 }
 
 .tel-link {
@@ -118,9 +120,29 @@ main {
 	font-size: 1.35em;
 	color: #cc3300;
 	font-weight: bold;
+	text-shadow: 5px 5px 8px #999;
 }
 
-#vol1, #vol7, #vol28, #vol31, #vol50, #vol56, #vol85, #vol98, #vol114 {
+.frame {
+	position: relative;
+	max-width: 450px;
+	margin: 2% auto;
+}
+	
+.pic-text {
+	position: absolute;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	color: #fff;
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+#vol1, #vol4, #vol6 #vol7, #vol28, #vol31, #vol49 #vol50, #vol54, #vol56, #vol60, #vol85, #vol98, #vol114, #vol285 {
 	margin: 0 2%;
 }
 
@@ -130,6 +152,11 @@ main {
 
 #homagecover, #homagelogo, #homageheroimage {
 	margin: 0 2%;
+}
+
+.bonuscontent {
+	display: grid;
+	place-items: center;
 }
 
 .round {
@@ -151,7 +178,7 @@ main {
 	text-decoration: none;
 }
 
-#archivetext, #history, #textbox{
+#textbox{
 	border: 2px solid #000;
 	background: linear-gradient(to right, #dedede, #fff);
 	background-color: #f2f2f2;
@@ -185,20 +212,34 @@ footer p a {
 		display: block;
 	}
 	
-	.mobile {
+	.mobile, .mobile-nav {
 		display: none;
 	}
 	
 	/* Tablet Viewport: Style rule for header */
 	header {
-		position: static;
 		padding-bottom: 2%;
 		height: 190px;
 	}
 	
+	header img {
+	max-width: 75%
+}
+	
 	/* Tablet Viewport: Style rules for nav area */
+	nav {
+	padding: 1%;
+	margin-bottom: 1%
+	}
+
+	nav ul {
+	list-style-type: none;
+	text-align: center;
+	}
+	
 	nav li {
-		border-top: none;
+		font-size: 1.30em;
+		font-family: "Pridi", serif;
 		display: inline-block;
 		border-right: 1px solid #fff;
 	}
@@ -209,25 +250,39 @@ footer p a {
 	
 	nav li a {
 		padding: 0.1em 0.75em;
+		display: block;
+		color: #fff;
+		text-decoration: none;
 	}
 	
 	/* Tablet Viewport: Style rules for main content area */
 	main ul {
-		margin: 0 0 4% 10%;
+		margin: 0 0 4% 5%;
+		line-height: 1.8;
 	}
 	
-	/* #archivetext, #history {
-	border: 2px solid #000;
-	background: linear-gradient(to right, #dedede, #fff);
-	background-color: #f2f2f2;
-	padding: 1% 2%;
-	} */
+	.grid {
+		display: grid;
+		grid-template-columns: auto auto;
+		grid-gap: 30px;
+	}
+	
+	.indexbuttons {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		grid-gap: 20px;
+	}
+	
+	.pic-text {
+		font-size: 1em;
+		padding: 10px;
+	}
 
-	#archivetext, #textbox dt {
+	#textbox dt {
 	font-weight: bold;
 	}
 
-	#archivetext, #textbox dd {
+	#textbox dd {
 	padding: 0.5% 1% 2% 0;
 	}
 	
@@ -239,6 +294,32 @@ footer p a {
 		width: 600px;
 		height: 450px;
 	}
+	
+		/* Tablet Viewport: Animation */
+	@-webkit-keyframes text-animation {
+		0% { font-size: 1em; }
+		50% { font-size: 1.5em; }
+		100% { font-size: 1em; }
+	}
+	
+	@keyframes text-animation {
+		0% { font-size: 1em; }
+		50% { font-size: 1.5em; }
+		100% { font-size: 1em; }
+	}
+	
+	figcaption {
+		-webkit-animation-name: text-animation;
+		animation-name: text-animation;
+		-webkit-animation-delay: 1s;
+		animation-delay: 1s;
+		-webkit-animation-duration: 5s;
+		animation-duration: 3s;
+	}
+	
+	#more {
+		display: none;
+	}
 
 }	
 
@@ -247,15 +328,19 @@ footer p a {
 	
 	/* Desktop Viewport: Style rule for header */
 	header {
-		width: 25%;
+		width: 20%;
 		float: left;
 		padding-bottom: 0;
 	}
 	
+	header img {
+	max-width: 130%
+}
+	
 	/* Desktop Viewport: Style rules for nav area */
 	nav {
 		float: right;
-		width: 70%;
+		width: 75%;
 		margin: 4em 1em 0 0;
 	}
 	
@@ -264,6 +349,7 @@ footer p a {
 	}
 	
 	nav li {
+		font-size: 1.5em;
 		border: none;
 	}
 	
@@ -274,6 +360,7 @@ footer p a {
 	nav li a:hover {
 		color: #201e25;
 		background-color: #fff;
+		transform: scale(1.3);
 	}
 	
 	/* Desktop Viewport: Style rules for main area */
@@ -285,7 +372,50 @@ footer p a {
 		font-size: 1.8em;
 	}
 	
-	#vol1, #vol7, #vol28, #vol31, #vol50, #vol56, #vol85, #vol98, #vol114 {
+	.grid {
+		display: grid;
+		grid-template-columns: auto auto auto;
+		grid-gap: 20px;
+	}
+	
+	.pic-text {
+		font-size: 1.3em;
+		padding: 20px;
+	}
+	
+	.frame {
+		opacity: 0.9;
+	}
+	
+	.frame:hover {
+		opacity: 1;
+		box-shadow: 8px 8px 10px;
+		transform: translateY(-10px);
+	}
+	
+	/* Desktop Viewport: Animation */
+	@-webkit-keyframes text-animation {
+		0% { font-size: 1.3em; }
+		50% { font-size: 1.9em; }
+		100% { font-size: 1.3em; }
+	}
+	
+	@keyframes text-animation {
+		0% { font-size: 1.3em; }
+		50% { font-size: 1.9em; }
+		100% { font-size: 1.3em; }
+	}
+	
+	figcaption {
+		-webkit-animation-name: text-animation;
+		animation-name: text-animation;
+		-webkit-animation-delay: 1s;
+		animation-delay: 1s;
+		-webkit-animation-duration: 5s;
+		animation-duration: 3s;
+	}
+	
+	#vol1, #vol4, #vol6 #vol7, #vol28, #vol31, #vol49 #vol50, #vol54, #vol56, #vol60, #vol85, #vol98, #vol114, #vol285 {
 		width: 29%;
 		float: left;
 		margin: 0 2%;
@@ -297,7 +427,7 @@ footer p a {
 		margin: 0 2%;
 	}
 	
-	#archivetext, #textbox {
+	#textbox {
 		clear: left;
 	}
 	
@@ -306,10 +436,7 @@ footer p a {
 		float: center;
 		margin: 0 2%;
 	}
-	
-	#history {
-		clear:  center;
-	}
+
 }
 
 /* Media Query for Large Desktop Viewports */
